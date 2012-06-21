@@ -1,0 +1,28 @@
+
+$font_white : rgb(200,200,200);
+
+@mixin content {
+  div {
+    margin : 10px;
+    font-size : 95%;
+  }
+}
+
+h1, h2, h3, h4 {
+  color : rgb(180,200,100)
+}
+
+a {
+  color : rgb(160,140,255);
+}
+
+body {
+  @include content;
+  background-color : rgb(40,20,20);
+  color : $font_white;
+}
+
+#samples input.img_tag {
+  width : 500px;
+  font-size : 100%;
+}
