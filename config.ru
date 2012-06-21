@@ -10,9 +10,9 @@ require 'json'
 require 'haml'
 require 'sass'
 require 'twitter'
-require 'tmp_cache'
+require 'dalli'
 require File.dirname(__FILE__)+'/bootstrap'
-Bootstrap.init :libs, :helpers, :controllers
+Bootstrap.init :inits, :libs, :helpers, :controllers
 
 set :haml, :escape_html => true
 
