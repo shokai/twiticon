@@ -1,6 +1,7 @@
 Twit Icon
 =========
-http://twiticon.herokuapp.com
+- You can embed Twitter Profile Icon with simple URL "http://twiticon.herokuapp.com/USER_NAME"
+- http://twiticon.herokuapp.com
 
 
 Install Dependencies
