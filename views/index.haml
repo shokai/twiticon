@@ -1,6 +1,9 @@
 - content_for :title do
   = @title
 
+%div
+  You can embed Twitter Icon with simple URL "#{app_root}/USER_NAME"
+%h2 Sample
 %div#samples
   %ul
     - ["#{app_root}/shokai", Icon::sizes.map{|s| "#{app_root}/shokai/#{s}"}].flatten.each do |url|
