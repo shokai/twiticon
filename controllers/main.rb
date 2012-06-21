@@ -13,3 +13,7 @@ end
 get '/' do
   haml :index
 end
+
+get '/favicon.ico' do
+  redirect icon 'shokai', :mini
+end
