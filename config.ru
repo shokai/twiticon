@@ -10,6 +10,7 @@ require 'json'
 require 'haml'
 require 'sass'
 require 'twitter'
+require 'tmp_cache'
 require File.dirname(__FILE__)+'/bootstrap'
 Bootstrap.init :libs, :helpers, :controllers
 
