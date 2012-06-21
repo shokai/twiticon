@@ -13,6 +13,8 @@ Install Dependencies
 Run
 ---
 
+    % cp sample.config.yml config.yml
+    % memcached -vv -p 11211 -U 11211
     % foreman start
 
 => http://localhost:5000
@@ -22,6 +24,7 @@ Deploy
 ------
 
     % heroku create --stack cedar
+    % heroku addons:add memcache:5mb
     % git push heroku master
     % heroku open
 
