@@ -1,15 +1,28 @@
 - content_for :title do
   = @title
 
+- urls = ["#{app_root}/shokai", Icon::sizes.map{|s| "#{app_root}/shokai/#{s}"}].flatten
+
 %div
   You can embed Twitter Profile Icon with simple URL "#{app_root}/USER_NAME"
-%h2 Sample
+
 %div#samples
+  %h2 Embed
   %ul
-    - ["#{app_root}/shokai", Icon::sizes.map{|s| "#{app_root}/shokai/#{s}"}].flatten.each do |url|
+    - urls.each do |url|
       %li
         %div
           %a{:href => url}
             %img{:src => url}
         %div
           %input.img_tag{:type => :text, :value => "<img src=\"#{url}\">", :size => 60}
+  %h2 API
+  %ul
+    - urls.each do |url|
+      - txt = "#{url}.txt"
+      - json = "#{url}.json"
+      %li
+        %div
+          %a{:href => txt}= txt
+        %div
+          %a{:href => json}= json
