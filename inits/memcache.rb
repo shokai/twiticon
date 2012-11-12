@@ -1,5 +1,12 @@
 class Cache
-  @@cache = Dalli::Client.new Conf['MEMCACHE_SERVERS'], {:username => Conf['MEMCACHE_USERNAME'], :password => Conf['MEMCACHE_PASSWORD']}
+  @@cache =
+    Dalli::Client.new(
+                      (Conf['MEMCACHIER_SERVERS'] || Conf['MEMCACHE_SERVERS'] || 'localhost:11211') ,
+                      {
+                        :username => (Conf['MEMCACHIER_USERNAME'] || Conf['MEMCACHE_USERNAME']),
+                        :password => (Conf['MEMCACHIER_PASSWORD'] || Conf['MEMCACHE_PASSWORD'])
+                      }
+                      )
   def self.cache
     @@cache
   end
