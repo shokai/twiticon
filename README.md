@@ -7,8 +7,33 @@ Twit Icon
 Install Dependencies
 --------------------
 
-    % gem install heroku bundler foreman
+    % gem install bundler
     % bundle install
+
+
+
+Setup Twitter
+-------------
+
+### set CONSUMER_KEY and CONSUMER_SECRET
+
+[Register Application](https://dev.twitter.com/apps/new) on Twitter and get them.
+
+    % export CONSUMER_KEY=1234asdfjiolkdfoi
+    % export CONSUMER_SECRET=hogehugahujiko842934
+
+### set ACCESS_TOKEN and ACCESS_SECRET
+
+use following tool
+
+    % ruby bin/get_twitter_oauth_keys.rb
+    open http://api.twitter.com/oauth/authorize?oauth_token=foauefoaiwjaopwhwe9ur2reu
+    input PIN Number: 29483
+
+set
+
+    % export ACCESS_TOKEN=9876abcdefghijk
+    % export ACCESS_SECRET=6a5b4c3d2e1f
 
 
 Run
@@ -25,42 +50,10 @@ Deploy
 ------
 
     % heroku create --stack cedar
-
-
-add memcache
-
-    % heroku addons:add memcache:5mb
-or
     % heroku addons:add memcachier:dev
-
-
-deploy
-
+    % heroku config:set CONSUMER_KEY=1234asdfjiolkdfoi
+    % heroku config:set CONSUMER_SECRET=hogehugahujiko842934
+    % heroku config:set ACCESS_TOKEN=9876abcdefghijk
+    % heroku config:set ACCESS_SECRET=6a5b4c3d2e1f
     % git push heroku master
     % heroku open
-
-
-LICENSE
-=======
-(The MIT License)
-
-Copyright (c) 2012 Sho Hashimoto
-
-Permission is hereby granted, free of charge, to any person obtaining
-a copy of this software and associated documentation files (the
-'Software'), to deal in the Software without restriction, including
-without limitation the rights to use, copy, modify, merge, publish,
-distribute, sublicense, and/or sell copies of the Software, and to
-permit persons to whom the Software is furnished to do so, subject to
-the following conditions:
-
-The above copyright notice and this permission notice shall be
-included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
-IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
-CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
-TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
-SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
