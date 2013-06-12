@@ -2,15 +2,13 @@
 %html
   %head
     %meta{'http-equiv' => 'Content-Type', :content => 'text/html', :charset => 'UTF-8'}
-    %title
-      != yield_content :title
+    %title= app_title
     %link{:rel => 'stylesheet', :href => "#{app_root}/style.css", :type => 'text/css'}
     != yield_content :head
   %body
     %div#content
       %div#header
-        %h1
-          != yield_content :title
+        %h1= app_title
       %div#main
         != yield
       %hr

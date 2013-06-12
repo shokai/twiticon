@@ -1,17 +1,12 @@
-get /^\/([a-zA-Z0-9_]+)$/ do
-  user = params[:captures].shift
+get %r{^/([a-zA-Z0-9_]+)$} do |user|
   redirect icon user
 end
 
-get /^\/([a-zA-Z0-9_]+)\/(#{Icon::sizes.join('|')})$/ do
-  user = params[:captures].shift
-  size = params[:captures].shift.to_sym
-  redirect icon user, size
+get %r{^/([a-zA-Z0-9_]+)/(#{Icon::sizes.join('|')})$} do |user, size|
+  redirect icon(user, size)
 end
 
-get /^\/([a-zA-Z0-9_]+)\.(txt|json)$/ do
-  user = params[:captures].shift
-  ext = params[:captures].shift
+get %r{^/([a-zA-Z0-9_]+)\.(txt|json)$} do |user, ext|
   case ext
   when 'txt'
     icon user
@@ -20,10 +15,7 @@ get /^\/([a-zA-Z0-9_]+)\.(txt|json)$/ do
   end
 end
 
-get /^\/([a-zA-Z0-9_]+)\/(#{Icon::sizes.join('|')})\.(txt|json)$/ do
-  user = params[:captures].shift
-  size = params[:captures].shift.to_sym
-  ext = params[:captures].shift
+get %r{^/([a-zA-Z0-9_]+)/(#{Icon::sizes.join('|')})\.(txt|json)$} do |user, size, ext|
   case ext
   when 'txt'
     icon user, size

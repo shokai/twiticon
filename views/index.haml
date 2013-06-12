@@ -1,11 +1,7 @@
-- content_for :title do
-  = @title
-
 - urls = ["#{app_root}/shokai", Icon::sizes.map{|s| "#{app_root}/shokai/#{s}"}].flatten
 
-%div
+%p
   You can embed Twitter Profile Icon with simple URL "#{app_root}/USER_NAME"
-
 %div#samples
   %h2 Embed
   %ul
