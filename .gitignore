@@ -1,8 +1,9 @@
-*.tmp
+.DS_Store
 *~
 *#*
 vendor
 .sass-cache
 .bundle
+.ruby-version
 config.yml
 tmp
