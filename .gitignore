@@ -5,3 +5,4 @@ vendor
 .sass-cache
 .bundle
 config.yml
+tmp
