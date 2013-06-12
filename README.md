@@ -1,7 +1,9 @@
 Twit Icon
 =========
-- You can embed Twitter Profile Icon with simple URL "http://twiticon.herokuapp.com/USER_NAME"
+Twitter Profile Icon with simple URL "http://twiticon.herokuapp.com/USER_NAME"
+
 - http://twiticon.herokuapp.com
+- https://github.com/shokai/twiticon
 
 
 Install Dependencies
@@ -17,14 +19,15 @@ Setup Twitter
 
 ### set CONSUMER_KEY and CONSUMER_SECRET
 
-[Register Application](https://dev.twitter.com/apps/new) on Twitter and get them.
+[Register Application](https://dev.twitter.com/apps/new) on Twitter and get CONSUMER_KEY and CONSUMER_SECRET.
 
     % export CONSUMER_KEY=1234asdfjiolkdfoi
     % export CONSUMER_SECRET=hogehugahujiko842934
 
+
 ### set ACCESS_TOKEN and ACCESS_SECRET
 
-use following tool
+use following tool and ACCESS_TOKEN and ACCESS_SECRET.
 
     % ruby bin/get_twitter_oauth_keys.rb
     open http://api.twitter.com/oauth/authorize?oauth_token=foauefoaiwjaopwhwe9ur2reu
@@ -39,7 +42,6 @@ set
 Run
 ---
 
-    % cp sample.config.yml config.yml
     % memcached -vv -p 11211 -U 11211
     % foreman start
 
