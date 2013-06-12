@@ -1,21 +1,45 @@
+require 'twitter'
+
+Twitter.configure do |c|
+  c.consumer_key = ENV['CONSUMER_KEY']
+  c.consumer_secret = ENV['CONSUMER_SECRET']
+  c.oauth_token = ENV['ACCESS_TOKEN']
+  c.oauth_token_secret = ENV['ACCESS_SECRET']
+end
 
 class Icon
-  def self.get(screen_name, size=:normal)
-    raise ArgumentError, "size must be [#{sizes.join(',')}]" unless sizes.include? size
-    Twitter::profile_image screen_name, {:size => size}
-  end
 
   def self.sizes
     [:normal, :bigger, :mini, :original]
+  end
+
+  attr_reader :url
+  def initialize(screen_name)
+    @url = Twitter::user(screen_name).profile_image_url
+  end
+
+  def normal
+    @url
+  end
+
+  def bigger
+    @url.gsub(/_normal\.png$/,"_bigger.png")
+  end
+
+  def mini
+    @url.gsub(/_normal\.png$/,"_mini.png")
+  end
+
+  def original
+    @url.gsub(/_normal\.png$/,".png")
   end
 end
 
 
 if $0 == __FILE__
-  require 'rubygems'
-  require 'twitter'
-  require File.expand_path '../bootstrap', File.dirname(__FILE__)
-  Bootstrap.init
-  puts Icon.get 'shokai'
-  puts Icon.get 'shokai', :original
+  icon = Icon.new 'shokai'
+  puts icon.normal
+  puts icon.bigger
+  puts icon.mini
+  puts icon.original
 end

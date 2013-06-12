@@ -17,3 +17,7 @@ end
 get '/favicon.ico' do
   redirect icon 'shokai', :mini
 end
+
+get '/:source.css' do
+  scss params[:source].to_sym
+end
