@@ -14,8 +14,12 @@ class Icon
   end
 
   attr_reader :url
-  def initialize(screen_name)
-    @url = Twitter::user(screen_name).profile_image_url
+  def initialize(screen_name_or_url)
+    if screen_name_or_url =~ /^https?:\/\//
+      @url = screen_name_or_url
+    else
+      @url = Twitter::user(screen_name_or_url).profile_image_url
+    end
   end
 
   def normal

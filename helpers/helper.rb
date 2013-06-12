@@ -11,14 +11,14 @@ helpers do
     size = size.to_sym
     halt 400, "invalid size (#{size})" unless Icon.sizes.include? size
     begin
-      if url = Cache[size].get(user)
+      if url = Cache["icon"].get(user)
         $logger.info "cache hit (@#{user}'s #{size} icon)"
-        return url
+        return Icon.new(url).__send__(size)
       else
         $logger.info "get @#{user}'s #{size} icon"
-        url = Icon.new(user).__send__(size)
-        Cache[size].set user, url
-        return url
+        icon = Icon.new(user)
+        Cache["icon"].set user, icon.url
+        return icon.__send__(size)
       end
     rescue Twitter::Error::NotFound => e
       $logger.info e
