@@ -1,4 +1,4 @@
-source :rubygems
+source 'https://rubygems.org'
 
 gem 'foreman'
 gem 'rack'
@@ -8,5 +8,6 @@ gem 'sinatra-contrib'
 gem 'json'
 gem 'haml'
 gem 'sass'
-gem 'twitter', '>= 2.0.0', '< 3.0.0'
+gem 'twitter'
+gem 'oauth'
 gem 'dalli'
